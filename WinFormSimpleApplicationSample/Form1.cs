@@ -120,6 +120,8 @@ namespace WinFormSimpleApplicationSample
       }
 
       string text = "";
+      bool rotate = false;
+      string rotateText = "";
 
       private void btnRunningText_Click(object sender, EventArgs e)
       {
@@ -130,8 +132,10 @@ namespace WinFormSimpleApplicationSample
          else
          {
             text = this.lblText.Text;
-            this.lblText.Text = string.Empty;
+            rotateText = text.Length < this.txtText.MaxLength ? text.PadRight(this.txtText.MaxLength) : text ;
             idx = 0;
+            rotate = this.chkRotate.Checked;
+            this.lblText.Text = rotate ? rotateText : string.Empty;
             this.txtText.Enabled = false;
             this.txtSpeed.Enabled = false;
             this.btnRunningText.Enabled = false;
@@ -145,14 +149,21 @@ namespace WinFormSimpleApplicationSample
 
       private void timer1_Tick(object sender, EventArgs e)
       {
-         if (this.lblText.Text.Length != text.Length)
+         if (rotate)
          {
-            this.lblText.Text += text[idx++];
+            this.lblText.Text = $"{this.lblText.Text.Substring(1)}{this.lblText.Text.Substring(0,1)}";
          }
          else
          {
-            this.lblText.Text = string.Empty;
-            idx = 0;
+            if (this.lblText.Text.Length != text.Length)
+            {
+               this.lblText.Text += text[idx++];
+            }
+            else
+            {
+               this.lblText.Text = string.Empty;
+               idx = 0;
+            }
          }
       }
 
@@ -204,6 +215,20 @@ namespace WinFormSimpleApplicationSample
       private void panel1_MouseUp(object sender, MouseEventArgs e)
       {
          this.mouse_click = false;
+      }
+
+      private void chkRotate_CheckedChanged(object sender, EventArgs e)
+      {
+         rotate = this.chkRotate.Checked;
+         if (rotate)
+         {
+            this.lblText.Text = rotateText;
+         }
+         else
+         {
+            idx = 0;
+            this.lblText.Text = "";
+         }
       }
 
    }

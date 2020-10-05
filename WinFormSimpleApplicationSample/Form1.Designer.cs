@@ -48,6 +48,7 @@
          this.label5 = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.lblText = new System.Windows.Forms.Label();
+         this.chkRotate = new System.Windows.Forms.CheckBox();
          this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
@@ -145,7 +146,7 @@
          this.txtText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.txtText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.txtText.Location = new System.Drawing.Point(16, 192);
-         this.txtText.MaxLength = 45;
+         this.txtText.MaxLength = 42;
          this.txtText.Name = "txtText";
          this.txtText.Size = new System.Drawing.Size(601, 26);
          this.txtText.TabIndex = 22;
@@ -255,11 +256,24 @@
          this.lblText.Text = "Input Your Text Here";
          this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
+         // chkRotate
+         // 
+         this.chkRotate.AutoSize = true;
+         this.chkRotate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.chkRotate.Location = new System.Drawing.Point(307, 317);
+         this.chkRotate.Name = "chkRotate";
+         this.chkRotate.Size = new System.Drawing.Size(77, 24);
+         this.chkRotate.TabIndex = 30;
+         this.chkRotate.Text = "Rotate";
+         this.chkRotate.UseVisualStyleBackColor = true;
+         this.chkRotate.CheckedChanged += new System.EventHandler(this.chkRotate_CheckedChanged);
+         // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(800, 359);
+         this.Controls.Add(this.chkRotate);
          this.Controls.Add(this.lblCount);
          this.Controls.Add(this.chkFontBold);
          this.Controls.Add(this.btnStop);
@@ -307,5 +321,6 @@
       private System.Windows.Forms.Label label5;
       private System.Windows.Forms.Panel panel1;
       private System.Windows.Forms.Label lblText;
+      private System.Windows.Forms.CheckBox chkRotate;
    }
 }
